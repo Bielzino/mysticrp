@@ -1,0 +1,27 @@
+.sidebar-left {
+    width: 450px;
+    height: 100%;
+    background: linear-gradient(to right, var(--bg-solid) 0%, var(--bg-solid) 40%, rgba(5,5,5,0) 100%);
+    padding: 60px 40px;
+    z-index: 2;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 50px;
+}
+
+.car-list { list-style: none; }
+
+.car-item {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.car-item.active {
+    color: var(--accent);
+    transform: translateX(10px);
+}

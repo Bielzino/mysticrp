@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovation | Auth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="sidebar-auth">
+        
+        <div id="login-section" class="content-box">
+            <img src="img/usuario.png" class="avatar" alt="Logo">
+            <h2>Bem-vindo.</h2>
+            <p class="subtitle">Identifique-se para prosseguir</p>
+
+            <div class="input-group">
+                <input type="text" placeholder="USUÁRIO">
+            </div>
+
+            <div class="input-group">
+                <input type="password" placeholder="SENHA">
+            </div>
+
+            <div class="actions">
+                <button class="btn-primary">Entrar</button>
+                <button class="btn-secondary" onclick="toggleAuth()">Registrar</button>
+            </div>
+        </div>
+
+        <div id="register-section" class="content-box hidden">
+            <img src="img/usuario.png" class="avatar" alt="Logo">
+            <h2>Criar Conta.</h2>
+            <p class="subtitle">Junte-se à nossa comunidade</p>
+
+            <div class="input-group">
+                <input type="text" placeholder="NOME COMPLETO">
+            </div>
+
+            <div class="input-group">
+                <input type="email" placeholder="E-MAIL">
+            </div>
+
+            <div class="input-group">
+                <input type="password" placeholder="CRIE UMA SENHA">
+            </div>
+
+            <div class="actions">
+                <button class="btn-primary">Finalizar</button>
+                <button class="btn-secondary" onclick="toggleAuth()">Voltar ao Login</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            MYSTIC COMMUNITY &copy; 2026
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

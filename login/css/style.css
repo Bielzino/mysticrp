@@ -1,0 +1,131 @@
+﻿        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: transparencent;
+            background-size: cover;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+        }
+
+        /* Painel Lateral com Fade para a direita */
+        .sidebar-auth {
+            height: 100%;
+            width: 70%; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 8%;
+            background: linear-gradient(to right, 
+                rgba(0, 0, 0, 0.95) 0%, 
+                rgba(0, 0, 0, 0.8) 50%, 
+                rgba(0, 0, 0, 0) 100%
+            );
+            backdrop-filter: blur(8px);
+            transition: all 0.5s ease;
+        }
+
+        .content-box {
+            max-width: 350px;
+            color: white;
+            transition: opacity 0.4s ease;
+        }
+
+        .avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            object-fit: cover;
+        }
+
+        h2 {
+            font-weight: 200;
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            outline: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-bottom: 1px solid #fff;
+        }
+
+        /* Botões Estilo RP */
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn-primary {
+            padding: 12px 35px;
+            background: #fff;
+            color: #000;
+            border: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #ccc;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: none;
+            color: #888;
+            text-decoration: underline;
+            font-size: 0.75rem;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn-secondary:hover {
+            color: #fff;
+        }
+
+        .hidden {
+            display: none;
+            opacity: 0;
+        }
+
+        .footer {
+            margin-top: 60px;
+            font-size: 0.65rem;
+            color: #444;
+            letter-spacing: 3px;
+        }
