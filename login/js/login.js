@@ -91,5 +91,6 @@ function setName(nome){
 }
 
 cef.on("UI:SetName", (nome) => {
+    console.log("Nome sendo setado:", nome);
     setName(nome);
 })
