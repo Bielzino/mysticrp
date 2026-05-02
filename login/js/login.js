@@ -10,8 +10,8 @@ tabs.forEach(btn => {
   btn.addEventListener("click", () => setTab(btn.dataset.tab));
 });
 
-const nomeForm =  document.getElementById("login-username-display")
-const nomeReg =  document.getElementById("reg-username-display")
+const nomeForm =  document.getElementById("player-name")
+const nomeReg =  document.getElementById("reg-player-name")
 
 const loginForm = document.getElementById("loginForm");
 const registerForm = document.getElementById("registerForm");
