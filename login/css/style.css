@@ -129,3 +129,35 @@
             color: #444;
             letter-spacing: 3px;
         }
+
+	/* Estilo para a frase "Olá, Nome" */
+    .player-identity {
+        padding-bottom: 4px;
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        border-left: none;
+        margin-bottom: 0;
+        color: inherit;
+        font-size: inherit;
+        text-align: inherit;
+        display: block;
+        flex-direction: unset;
+        gap: unset;
+    }
+
+    #player-name, #reg-player-name {
+        color: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+        text-transform: inherit;
+        text-shadow: none;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
+        color: #666;
+        margin-bottom: 35px;
+        opacity: 1;
+    }
