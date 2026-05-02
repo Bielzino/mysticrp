@@ -90,7 +90,7 @@ function setName(nome){
     nomeReg.textContent = nome;
 }
 
-cef.on("UI:SetName",function (nome) {
+cef.on("UI:SetName", function (nome) {
     console.log("Nome sendo setado:", nome);
     setName(nome);
 })
