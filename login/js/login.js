@@ -52,15 +52,21 @@ function toggleAuth() {
     }
 }
 
+// Para o Login
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const data = sendLogin();
+  const data = sendLogin(); // Isso pega os dados do form (ex: data.password)
+
+  if (typeof cef !== 'undefined') {
+    // Envia a senha para o servidor Pawn
+    cef.emit("Player:login", data.password);
+  }
 
   hint(loginHint, "Enviando login...", null);
-
   console.log("LOGIN:", data);
 });
 
+// Para o Registro
 registerForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const data = sendRegister();
@@ -70,12 +76,20 @@ registerForm.addEventListener("submit", (e) => {
     return;
   }
 
-  hint(registerHint, "Enviando registro...", null);
+  if (typeof cef !== 'undefined') {
+    // Envia a senha para o servidor Pawn
+    cef.emit("Player:register", data.password);
+  }
 
+  hint(registerHint, "Enviando registro...", null);
   console.log("REGISTER:", data);
 });
 
-cef.on("UI:SetName", (nome) => {
+function setName(nome){
     nomeForm.textContent = nome;
     nomeReg.textContent = nome;
+}
+
+cef.on("UI:SetName", (nome) => {
+    setName(nome);
 })
