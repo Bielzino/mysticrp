@@ -90,7 +90,12 @@ function setName(nome){
     nomeReg.textContent = nome;
 }
 
-cef.on("UI:SetName", function (nome) {
-    console.log("Nome sendo setado:", nome);
-    setName(nome);
-})
+window.addEventListener("load", () => {
+    // Verificamos se o objeto 'cef' existe para evitar erros no console
+    if (typeof cef !== 'undefined') {
+        cef.on("UI:SetName", function (nome) {
+            console.log("Nome recebido do servidor:", nome);
+            setName(nome);
+        });
+    }
+});
