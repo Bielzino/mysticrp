@@ -52,6 +52,6 @@ function setName(nome){
 
 cef.on("setName", (nome) => {
     console.log("Evento chamado")
-    console.log("setName:", nomeStr)
-    setName(nomeStr)
+    console.log("setName:", nome)
+    setName(nome)
 })
