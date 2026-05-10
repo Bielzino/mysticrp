@@ -51,7 +51,6 @@ function setName(nome){
 }
 
 cef.on("setName", (nome) => {
-    const nomeStr = toString(nome)
     console.log("Evento chamado")
     console.log("setName:", nomeStr)
     setName(nomeStr)
