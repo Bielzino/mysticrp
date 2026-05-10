@@ -70,9 +70,8 @@ loginForm.addEventListener("submit", (e) => {
     }
 
     hint(loginHint, "Autenticando...", "is-ok");
-    
-    // Envia para o cliente do jogo (Ex: RageMP/Alt:V)
-    cef.emit("OnPlayerLogin", user, pass);
+
+    cef.emit("Player:login", user, pass);
 });
 
 // --- Configuração do Formulário de Registro ---
@@ -96,6 +95,5 @@ registerForm.addEventListener("submit", (e) => {
 
     hint(registerHint, "Criando conta...", "is-ok");
 
-    // Envia para o cliente do jogo
-    cef.emit("OnPlayerRegister", user, pass);
+    cef.emit("Player:register", user, pass);
 });
