@@ -13,8 +13,8 @@ tabs.forEach(btn => {
 const nomeForm =  document.getElementById("player-name")
 const nomeReg =  document.getElementById("reg-player-name")
 
-const loginForm = document.getElementById("loginForm");
-const registerForm = document.getElementById("registerForm");
+const loginForm = document.getElementById("login-form");
+const registerForm = document.getElementById("register-form");
 
 const loginHint = document.getElementById("loginHint");
 const registerHint = document.getElementById("registerHint");
@@ -55,3 +55,47 @@ cef.on("setName", (nome) => {
     console.log("setName:", nome)
     setName(nome)
 })
+
+// --- Configuração do Formulário de Login ---
+loginForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // Impede o reload da página
+
+    const user = loginForm.querySelector('input[type="text"]').value;
+    const pass = loginForm.querySelector('input[type="password"]').value;
+
+    // Validação básica antes de enviar
+    if (user.length < 3 || pass.length < 3) {
+        hint(loginHint, "Usuário ou senha muito curtos!", "is-error");
+        return;
+    }
+
+    hint(loginHint, "Autenticando...", "is-ok");
+    
+    // Envia para o cliente do jogo (Ex: RageMP/Alt:V)
+    cef.emit("OnPlayerLogin", user, pass);
+});
+
+// --- Configuração do Formulário de Registro ---
+registerForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const user = registerForm.querySelector('input[type="text"]').value;
+    const pass = registerForm.querySelector('input[type="password"]').value;
+    const passConfirm = registerForm.querySelectorAll('input[type="password"]')[1].value;
+
+    // Validações de Registro
+    if (pass !== passConfirm) {
+        hint(registerHint, "As senhas não coincidem!", "is-error");
+        return;
+    }
+
+    if (user.length < 3) {
+        hint(registerHint, "Nome de usuário inválido.", "is-error");
+        return;
+    }
+
+    hint(registerHint, "Criando conta...", "is-ok");
+
+    // Envia para o cliente do jogo
+    cef.emit("OnPlayerRegister", user, pass);
+});
