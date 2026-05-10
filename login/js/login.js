@@ -13,9 +13,6 @@ tabs.forEach(btn => {
 const nomeForm =  document.getElementById("player-name")
 const nomeReg =  document.getElementById("reg-player-name")
 
-const loginForm = document.getElementById("login-form");
-const registerForm = document.getElementById("register-form");
-
 const loginHint = document.getElementById("loginHint");
 const registerHint = document.getElementById("registerHint");
 
@@ -57,43 +54,55 @@ cef.on("setName", (nome) => {
 })
 
 // --- Configuração do Formulário de Login ---
-loginForm.addEventListener("submit", (e) => {
-    e.preventDefault(); // Impede o reload da página
+document.addEventListener("DOMContentLoaded", () => {
+    // TODO O SEU CÓDIGO DE SELEÇÃO E EVENTOS DEVE FICAR AQUI DENTRO
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
 
-    const user = loginForm.querySelector('input[type="text"]').value;
-    const pass = loginForm.querySelector('input[type="password"]').value;
+    if (loginForm) {
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
 
-    // Validação básica antes de enviar
-    if (user.length < 3 || pass.length < 3) {
-        hint(loginHint, "Usuário ou senha muito curtos!", "is-error");
-        return;
+            const user = loginForm.querySelector('input[type="text"]').value;
+            const pass = loginForm.querySelector('input[type="password"]').value;
+
+            // Validação básica antes de enviar
+            if (user.length < 3 || pass.length < 3) {
+                hint(loginHint, "Usuário ou senha muito curtos!", "is-error");
+                return;
+            }
+
+            hint(loginHint, "Autenticando...", "is-ok");
+            
+            // Envia para o cliente do jogo (Ex: RageMP/Alt:V)
+            cef.emit("auth:login", user, pass);
+        });
     }
 
-    hint(loginHint, "Autenticando...", "is-ok");
+    if (registerForm) {
+        registerForm.addEventListener("submit", (e) => {
+        // --- Configuração do Formulário de Registro ---
+            e.preventDefault();
 
-    cef.emit("Player:login", user, pass);
-});
+            const user = registerForm.querySelector('input[type="text"]').value;
+            const pass = registerForm.querySelector('input[type="password"]').value;
+            const passConfirm = registerForm.querySelectorAll('input[type="password"]')[1].value;
 
-// --- Configuração do Formulário de Registro ---
-registerForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+            // Validações de Registro
+            if (pass !== passConfirm) {
+                hint(registerHint, "As senhas não coincidem!", "is-error");
+                return;
+            }
 
-    const user = registerForm.querySelector('input[type="text"]').value;
-    const pass = registerForm.querySelector('input[type="password"]').value;
-    const passConfirm = registerForm.querySelectorAll('input[type="password"]')[1].value;
+            if (user.length < 3) {
+                hint(registerHint, "Nome de usuário inválido.", "is-error");
+                return;
+            }
 
-    // Validações de Registro
-    if (pass !== passConfirm) {
-        hint(registerHint, "As senhas não coincidem!", "is-error");
-        return;
+            hint(registerHint, "Criando conta...", "is-ok");
+
+            // Envia para o cliente do jogo
+            cef.emit("auth:register", user, pass);
+        });
     }
-
-    if (user.length < 3) {
-        hint(registerHint, "Nome de usuário inválido.", "is-error");
-        return;
-    }
-
-    hint(registerHint, "Criando conta...", "is-ok");
-
-    cef.emit("Player:register", user, pass);
 });
