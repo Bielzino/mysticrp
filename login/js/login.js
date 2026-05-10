@@ -25,13 +25,6 @@ function hint(el, msg, type){
   if(type) el.classList.add(type);
 }
 
-function sendLogin(){
-  return Object.fromEntries(new FormData(loginForm));
-}
-
-function sendRegister(){
-  return Object.fromEntries(new FormData(registerForm));
-}
 
 function toggleAuth() {
     const login = document.getElementById('login-section');
@@ -51,39 +44,6 @@ function toggleAuth() {
         }, 100);
     }
 }
-
-// Para o Login
-loginForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const data = sendLogin(); // Isso pega os dados do form (ex: data.password)
-
-  if (typeof cef !== 'undefined') {
-    // Envia a senha para o servidor Pawn
-    cef.emit("Player:login", data.password);
-  }
-
-  hint(loginHint, "Enviando login...", null);
-  console.log("LOGIN:", data);
-});
-
-// Para o Registro
-registerForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const data = sendRegister();
-
-  if (data.password !== data.passwordConfirm){
-    hint(registerHint, "As senhas não batem.", "is-error");
-    return;
-  }
-
-  if (typeof cef !== 'undefined') {
-    // Envia a senha para o servidor Pawn
-    cef.emit("Player:register", data.password);
-  }
-
-  hint(registerHint, "Enviando registro...", null);
-  console.log("REGISTER:", data);
-});
 
 function setName(nome){
     nomeForm.textContent = nome;
