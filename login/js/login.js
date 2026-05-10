@@ -62,8 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (loginForm) {
         loginForm.addEventListener("submit", (e) => {
             e.preventDefault();
-
-            const user = loginForm.querySelector('input[type="text"]').value;
             const pass = loginForm.querySelector('input[type="password"]').value;
 
             // Validação básica antes de enviar
@@ -75,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
             hint(loginHint, "Autenticando...", "is-ok");
             
             // Envia para o cliente do jogo (Ex: RageMP/Alt:V)
-            cef.emit("auth:login", user, pass);
+            cef.emit("auth:login", nomeForm.textContent, pass);
         });
     }
 
@@ -84,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // --- Configuração do Formulário de Registro ---
             e.preventDefault();
 
-            const user = registerForm.querySelector('input[type="text"]').value;
             const pass = registerForm.querySelector('input[type="password"]').value;
             const passConfirm = registerForm.querySelectorAll('input[type="password"]')[1].value;
 
@@ -102,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
             hint(registerHint, "Criando conta...", "is-ok");
 
             // Envia para o cliente do jogo
-            cef.emit("auth:register", user, pass);
+            cef.emit("auth:register", nomeReg.textContent, pass);
         });
     }
 });
