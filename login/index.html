@@ -13,10 +13,10 @@
         <div id="login-section" class="content-box">
             <img src="img/usuario.png" class="avatar" alt="Logo">
             <h2>Bem-vindo.</h2>
+            <p class="player-identity">Olá, <strong id="player-name">Carregando...</strong></p>
             <p class="subtitle">Insira sua senha para prosseguir</p>
             
-            <form id="login-form" onsubmit="handleLogin(event)">
-                <p class="player-identity">Olá, <strong id="player-name">Carregando...</strong></p>
+            <form id="login-form" >
                 <div class="input-group">
                     <input type="password" id="login-password" placeholder="SENHA" required>
                 </div>
@@ -31,12 +31,10 @@
         <div id="register-section" class="content-box hidden">
             <img src="img/usuario.png" class="avatar" alt="Logo">
             <h2>Criar Conta.</h2>
+            <p class="player-identity">Olá, <strong id="reg-player-name">Carregando...</strong></p>
             <p class="subtitle">Junte-se à nossa comunidade</p>
             
             <form id="register-form" onsubmit="handleRegister(event)">
-                <div class="input-group">
-                    <h1 type="text" id="reg-player-name" placeholder="USUÁRIO" value="Player" required>
-                </div>
                 <div class="input-group">
                     <input type="email" id="reg-email" placeholder="E-MAIL" required>
                 </div>
