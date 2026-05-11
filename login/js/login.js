@@ -74,13 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
 
             const pass = registerForm.querySelector('input[type="password"]').value;
-            const passConfirm = registerForm.querySelectorAll('input[type="password"]')[1].value;
-
-            // Validações de Registro
-            if (pass !== passConfirm) {
-                hint(registerHint, "As senhas não coincidem!", "is-error");
-                return;
-            }
 
             hint(registerHint, "Criando conta...", "is-ok");
 
