@@ -58,27 +58,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("login-form");
     const registerForm = document.getElementById("register-form");
 
-    if (loginForm) {
-        loginForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const pass = loginForm.querySelector('input[type="password"]').value;
-            
-            // --- Envia dados de login para o servidor ---
-            cef.emit("auth:login", pass);
-        });
-    }
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const pass = loginForm.querySelector('input[type="password"]').value;
+        
+        // --- Envia dados de login para o servidor ---
+        cef.emit("auth:login", pass);
+    });
 
-    if (registerForm) {
-        registerForm.addEventListener("submit", (e) => {
-        // --- Configuração do Formulário de Registro ---
-            e.preventDefault();
+    registerForm.addEventListener("submit", (e) => {
+    // --- Configuração do Formulário de Registro ---
+        e.preventDefault();
 
-            const pass = registerForm.querySelector('input[type="password"]').value;
+        const pass = registerForm.querySelector('input[type="password"]').value;
 
-            hint(registerHint, "Criando conta...", "is-ok");
+        hint(registerHint, "Criando conta...", "is-ok");
 
-            // Envia para o cliente do jogo
-            cef.emit("auth:register", pass);
-        });
-    }
+        // Envia para o cliente do jogo
+        cef.emit("auth:register", pass);
+    });
 });
