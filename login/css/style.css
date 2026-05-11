@@ -130,34 +130,55 @@
             letter-spacing: 3px;
         }
 
-	/* Estilo para a frase "Olá, Nome" */
-    .player-identity {
-        padding-bottom: 4px;
-        background: transparent;
-        padding: 0;
-        border-radius: 0;
-        border-left: none;
-        margin-bottom: 0;
-        color: inherit;
-        font-size: inherit;
-        text-align: inherit;
-        display: block;
-        flex-direction: unset;
-        gap: unset;
-    }
+        /* Estilo para a frase "Olá, Nome" */
+        .player-identity {
+            padding: 12px 5px;
+            margin-bottom: 25px;
+            color: #fff;
+            font-size: 1rem;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    #player-name, #reg-player-name {
-        color: inherit;
-        font-size: inherit;
-        font-weight: inherit;
-        letter-spacing: inherit;
-        text-transform: inherit;
-        text-shadow: none;
-    }
+        .player-identity:hover {
+            background: rgba(255,255,255,0.06);
+        }
 
-    .subtitle {
-        font-size: 0.85rem;
-        color: #666;
-        margin-bottom: 35px;
-        opacity: 1;
-    }
+        #player-name, #reg-player-name {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: capitalize;
+            text-shadow: 0 0 8px rgba(255,255,255,0.2);
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 35px;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        /* Estilo base para as mensagens de erro/sucesso */
+        .hint-message {
+            font-size: 13px;
+            margin: 10px 0;
+            min-height: 18px; /* Mantém o espaço mesmo vazio */
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        /* Classe de sucesso */
+        .hint-message.is-ok {
+            color: #2ecc71; /* Verde */
+        }
+
+        /* Classe de erro */
+        .hint-message.is-error {
+            color: #e74c3c; /* Vermelho */
+        }

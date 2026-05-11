@@ -15,7 +15,8 @@
             <h2>Bem-vindo.</h2>
             <p class="player-identity">Olá, <strong id="player-name">Carregando...</strong></p>
             <p class="subtitle">Insira sua senha para prosseguir</p>
-            
+            <p id="login-hint" class="hint-message"></p>
+
             <form id="login-form" >
                 <div class="input-group">
                     <input type="password" id="login-password" placeholder="SENHA" required>
@@ -33,7 +34,8 @@
             <h2>Criar Conta.</h2>
             <p class="player-identity">Olá, <strong id="reg-player-name">Carregando...</strong></p>
             <p class="subtitle">Junte-se à nossa comunidade</p>
-            
+            <p id="register-hint" class="hint-message"></p>
+
             <form id="register-form" onsubmit="handleRegister(event)">
                 <div class="input-group">
                     <input type="email" id="reg-email" placeholder="E-MAIL" required>
