@@ -62,14 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
         loginForm.addEventListener("submit", (e) => {
             e.preventDefault();
             const pass = loginForm.querySelector('input[type="password"]').value;
-
-            // Validação básica antes de enviar
-            if (user.length < 3 || pass.length < 3) {
-                hint(loginHint, "Usuário ou senha muito curtos!", "is-error");
-                return;
-            }
-
-            hint(loginHint, "Autenticando...", "is-ok");
             
             // --- Envia dados de login para o servidor ---
             cef.emit("auth:login", pass);
@@ -87,11 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
             // Validações de Registro
             if (pass !== passConfirm) {
                 hint(registerHint, "As senhas não coincidem!", "is-error");
-                return;
-            }
-
-            if (user.length < 3) {
-                hint(registerHint, "Nome de usuário inválido.", "is-error");
                 return;
             }
 
