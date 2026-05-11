@@ -55,7 +55,6 @@ cef.on("setName", (nome) => {
 
 // --- Configuração do Formulário de Login ---
 document.addEventListener("DOMContentLoaded", () => {
-    // TODO O SEU CÓDIGO DE SELEÇÃO E EVENTOS DEVE FICAR AQUI DENTRO
     const loginForm = document.getElementById("login-form");
     const registerForm = document.getElementById("register-form");
 
@@ -72,8 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             hint(loginHint, "Autenticando...", "is-ok");
             
-            // Envia para o cliente do jogo (Ex: RageMP/Alt:V)
-            cef.emit("auth:login", nomeForm.textContent, pass);
+            // --- Envia dados de login para o servidor ---
+            cef.emit("auth:login", pass);
         });
     }
 
@@ -99,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
             hint(registerHint, "Criando conta...", "is-ok");
 
             // Envia para o cliente do jogo
-            cef.emit("auth:register", nomeReg.textContent, pass);
+            cef.emit("auth:register", pass);
         });
     }
 });
