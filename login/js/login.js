@@ -13,8 +13,8 @@ tabs.forEach(btn => {
 const nomeForm =  document.getElementById("player-name")
 const nomeReg =  document.getElementById("reg-player-name")
 
-const loginHint = document.getElementById("loginHint");
-const registerHint = document.getElementById("registerHint");
+const loginHint = document.getElementById("login-hint");
+const registerHint = document.getElementById("register-hint");
 
 function hint(el, msg, type){
   el.textContent = msg || "";
