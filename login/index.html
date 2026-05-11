@@ -10,48 +10,48 @@
 <body>
 
     <div class="sidebar-auth">
-        
-    <div id="login-section" class="content-box">
+        <div id="login-section" class="content-box">
             <img src="img/usuario.png" class="avatar" alt="Logo">
             <h2>Bem-vindo.</h2>
-            <p class="player-identity">Olá, <strong id="player-name">Carregando...</strong></p>
             <p class="subtitle">Insira sua senha para prosseguir</p>
+            
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <p class="player-identity">Olá, <strong id="player-name">Carregando...</strong></p>
+                <div class="input-group">
+                    <input type="password" id="login-password" placeholder="SENHA" required>
+                </div>
 
-            <div class="input-group">
-                <input type="password" id="login-password" placeholder="SENHA">
-            </div>
-
-            <div class="actions">
-                <button class="btn-primary">Entrar</button>
-                <button class="btn-secondary" onclick="toggleAuth()">Registrar</button>
-            </div>
+                <div class="actions">
+                    <button type="submit" class="btn-primary">Entrar</button>
+                    <button type="button" class="btn-secondary" onclick="toggleAuth()">Registrar</button>
+                </div>
+            </form>
         </div>
 
         <div id="register-section" class="content-box hidden">
             <img src="img/usuario.png" class="avatar" alt="Logo">
             <h2>Criar Conta.</h2>
-            <p class="player-identity">Usuário: <strong id="reg-player-name">Carregando...</strong></p>
             <p class="subtitle">Junte-se à nossa comunidade</p>
+            
+            <form id="register-form" onsubmit="handleRegister(event)">
+                <div class="input-group">
+                    <h1 type="text" id="reg-player-name" placeholder="USUÁRIO" value="Player" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="reg-email" placeholder="E-MAIL" required>
+                </div>
 
-            <div class="input-group">
-                <input type="email" placeholder="E-MAIL">
-            </div>
+                <div class="input-group">
+                    <input type="password" id="reg-password" placeholder="CRIE UMA SENHA" required>
+                </div>
 
-            <div class="input-group">
-                <input type="password" placeholder="CRIE UMA SENHA">
-            </div>
-
-            <div class="actions">
-                <button class="btn-primary">Finalizar</button>
-                <button class="btn-secondary" onclick="toggleAuth()">Voltar ao Login</button>
-            </div>
-        </div>
-
-        <div class="footer">
-            MYSTIC COMMUNITY &copy; 2026
+                <div class="actions">
+                    <button type="submit" class="btn-primary">Finalizar</button>
+                    <button type="button" class="btn-secondary" onclick="toggleAuth()">Voltar ao Login</button>
+                </div>
+            </form>
         </div>
     </div>
-
     <script src="js/login.js"></script>
 </body>
 </html>
