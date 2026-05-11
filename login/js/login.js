@@ -47,34 +47,41 @@ function setName(nome){
     nomeReg.textContent = nome;
 }
 
+// Função de Login chamada pelo HTML
+function handleLogin(event) {
+    event.preventDefault(); // Impede a página de recarregar
+    
+    // Pega a senha do formulário que disparou o evento
+    const pass = event.currentTarget.querySelector('input[type="password"]').value;
+
+    if (typeof cef !== 'undefined') {
+        cef.emit("auth:login", pass);
+    } else {
+        console.log("CEF não detectado. Senha digitada:", pass);
+    }
+}
+
+// Função de Registro chamada pelo HTML
+function handleRegister(event) {
+    event.preventDefault();
+
+    const pass = event.currentTarget.querySelector('input[type="password"]').value;
+
+    // Se a sua função 'hint' estiver definida, ela funcionará aqui
+    if (typeof hint === "function") {
+        hint(registerHint, "Criando conta...", "is-ok");
+    }
+
+    if (typeof cef !== 'undefined') {
+        cef.emit("auth:register", pass);
+    } else {
+        console.log("CEF não detectado. Registro de senha:", pass);
+    }
+}
+
 cef.on("setName", (nome) => {
     console.log("Evento chamado")
     console.log("setName:", nome)
     setName(nome)
 })
 
-// --- Configuração do Formulário de Login ---
-document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.getElementById("login-form");
-    const registerForm = document.getElementById("register-form");
-
-    loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const pass = loginForm.querySelector('input[type="password"]').value;
-        
-        // --- Envia dados de login para o servidor ---
-        cef.emit("auth:login", pass);
-    });
-
-    registerForm.addEventListener("submit", (e) => {
-    // --- Configuração do Formulário de Registro ---
-        e.preventDefault();
-
-        const pass = registerForm.querySelector('input[type="password"]').value;
-
-        hint(registerHint, "Criando conta...", "is-ok");
-
-        // Envia para o cliente do jogo
-        cef.emit("auth:register", pass);
-    });
-});
