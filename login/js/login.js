@@ -17,6 +17,7 @@ const loginHint = document.getElementById("login-hint");
 const registerHint = document.getElementById("register-hint");
 
 function hint(el, msg, type){
+  el.classList.remove("hidden");
   el.textContent = msg || "";
   el.classList.remove("is-error", "is-ok");
   if(type) el.classList.add(type);
