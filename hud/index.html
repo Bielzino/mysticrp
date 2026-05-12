@@ -40,25 +40,12 @@
                 <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
                 <div class="bar-bg"><div class="bar-inner fd"></div></div>
             </div>
+            <div class="stat-item">
+                <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+                <div class="bar-bg"><div class="bar-inner wt"></div></div>
+            </div>
         </div>
     </div>
-
-    <script>
-        const speedEl = document.getElementById('speed-val');
-        const rpmEl = document.getElementById('rpm-arc');
-        const gearEl = document.getElementById('gear-val');
-
-        let s = 0;
-        setInterval(() => {
-            s += 2;
-            if(s > 260) s = 0;
-            speedEl.innerText = s.toString().padStart(3, '0');
-            let ratio = s / 260;
-            rpmEl.style.strokeDashoffset = 440 - (ratio * (440 * 0.65));
-            if(ratio > 0.8) rpmEl.style.stroke = "var(--danger)";
-            else rpmEl.style.stroke = "var(--primary)";
-            gearEl.innerText = s === 0 ? 'N' : Math.ceil(s/45);
-        }, 40);
-    </script>
+    <script src="./js/app.js" type="module"></script>
 </body>
 </html>

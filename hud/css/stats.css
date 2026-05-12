@@ -1,7 +1,8 @@
 /* Estilos dos Status */
 :root {
-    --armor: #007aff;
+    --armor: #06315f;
     --food: #ff9500;
+    --water: #0099ff;
 }
 
 .stats-wrap {
@@ -42,3 +43,4 @@
 .hp { background: var(--danger); width: 100%; }
 .ar { background: var(--armor); width: 60%; }
 .fd { background: var(--food); width: 40%; }
+.wt { background: var(--water); width: 20%; }
