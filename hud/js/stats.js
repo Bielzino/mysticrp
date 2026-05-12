@@ -1,4 +1,4 @@
-hud
+let hud = false;
 
 export function updateHud(type, percent) {
     const bar = document.querySelector(`.bar-inner.${type}`);
@@ -9,10 +9,11 @@ export function updateHud(type, percent) {
 
 export function controllHud(status){
     if(hud == true){
-        activeSpeed();
+        document.querySelector(".speed-wrap").style.display = "none";
+        hud = false;
     }
     else if(hud == false){
-        document.querySelector(".speed-wrap").style.display = "none";
-        speed = false;
+        document.querySelector(".speed-wrap").style.display = "block";
+        hud = true;
     }
 }
