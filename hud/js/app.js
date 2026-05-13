@@ -1,16 +1,13 @@
-import { updateHud , controllHud } from './stats.js';
-import { updateSpeed , activeSpeed} from './speed.js';
-
 // Evento para mostrar/esconder o velocímetro
-cef.on("UI:ShowSpeed", (status) => {
+cef.on("UI:ShowSpeed", async (status) => {
     if(status == true){
-        activeSpeed();
+        await activeSpeed();
     }
 });
 
 // Evento para mostrar/esconder o HUD de status
-cef.on("UI:ShowHUD", () => {
-    controllHud();
+cef.on("UI:ShowHUD", async () => {
+    await controllHud();        
 });
 
 // Evento para atualizar o HUD de status

@@ -1,13 +1,13 @@
 let hud = false;
 
-export function updateHud(type, percent) {
+function updateHud(type, percent) {
     const bar = document.querySelector(`.bar-inner.${type}`);
     if (bar) {
         bar.style.width = `${percent}%`;
     }
 }
 
-export function controllHud(status){
+function controllHud(status){
     if(hud == true){
         document.querySelector(".speed-wrap").style.display = "none";
         hud = false;
