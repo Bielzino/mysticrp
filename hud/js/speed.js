@@ -3,7 +3,7 @@ const rpmEl = document.getElementById('rpm-arc');
 const gearEl = document.getElementById('gear-val');
 let speed = false;
 
-async function getGear(speed)
+function getGear(speed)
 {
     if(speed <= 0) return 'N';
     if(speed < 20) return 1;
@@ -15,7 +15,7 @@ async function getGear(speed)
     return 6;
 }
 
-async function getRPMRatio(speed, gear)
+function getRPMRatio(speed, gear)
 {
     const ratios = {
         1: 0.90,
@@ -35,7 +35,7 @@ async function getRPMRatio(speed, gear)
     );
 }
 
-async function updateSpeed(speedMph) {
+function updateSpeed(speedMph) {
     // MPH -> KM/H
     let speed = Math.floor(speedMph * 1.60934);
 
@@ -46,13 +46,13 @@ async function updateSpeed(speedMph) {
     if (speedEl) speedEl.innerText = speed.toString().padStart(3, '0');
 
     // Calcula marcha
-    const gear = await getGear(speed);
+    const gear = getGear(speed);
 
     // Atualiza marcha
     if (gearEl) gearEl.innerText = gear;
 
     // Calcula RPM
-    const rpmRatio = await getRPMRatio(speed, gear);
+    const rpmRatio = getRPMRatio(speed, gear);
 
     // Atualiza arco RPM
     if (rpmEl) {
