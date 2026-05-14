@@ -1,5 +1,5 @@
 // Evento para mostrar/esconder o velocímetro
-cef.on("UI:ShowSpeed", () => {
+cef.on("UI:ShowSpeed", (status) => {
     if(status == true){
         activeSpeed();
     }
