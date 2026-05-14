@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>FiveM HUD - Modular</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/velocimetro.css">
+    <link rel="stylesheet" href="./css/stats.css">
+</head>
+<body>
+
+    <div class="hud-container">
+        <div class="speed-wrap">
+            <svg class="rpm-ring" width="160" height="160">
+                <circle class="track" cx="80" cy="80" r="70"></circle>
+                <circle class="fill" id="rpm-arc" cx="80" cy="80" r="70"></circle>
+            </svg>
+            
+            <div class="speed-info">
+                <div class="kmh" id="speed-val">000</div>
+                <div class="unit-gear">
+                    <span>KM/H</span>
+                    <span class="gear-active" id="gear-val">N</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-wrap">
+            <div class="stat-item">
+                <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <div class="bar-bg"><div class="bar-inner hp"></div></div>
+            </div>
+            <div class="stat-item">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                <div class="bar-bg"><div class="bar-inner ar"></div></div>
+            </div>
+            <div class="stat-item">
+                <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+                <div class="bar-bg"><div class="bar-inner fd"></div></div>
+            </div>
+            <div class="stat-item">
+                <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+                <div class="bar-bg"><div class="bar-inner wt"></div></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/stats.js"></script>
+    <script src="js/speed.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
