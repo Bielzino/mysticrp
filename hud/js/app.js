@@ -1,13 +1,13 @@
 // Evento para mostrar/esconder o velocímetro
-cef.on("UI:ShowSpeed", async (status) => {
+cef.on("UI:ShowSpeed", () => {
     if(status == true){
-        await activeSpeed();
+        activeSpeed();
     }
 });
 
 // Evento para mostrar/esconder o HUD de status
-cef.on("UI:ShowHUD", async () => {
-    await controllHud();        
+cef.on("UI:ShowHUD", () => {
+    controllHud();        
 });
 
 // Evento para atualizar o HUD de status
