@@ -1,0 +1,52 @@
+/* Container que joga o minimapa para o canto esquerdo inferior */
+.minimap-container {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    z-index: 99; /* Garante que fique por cima de outros elementos */
+}
+
+/* Moldura do Minimapa (O tamanho que ele aparece na tela) */
+.minimap-radar {
+    width: 200px;
+    height: 200px;
+    border: 4px solid #fff;
+    border-radius: 50%; /* Deixa redondo igual ao GTA clássico */
+    position: relative;
+    overflow: hidden; /* Esconde o resto do mapa grande */
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    background-color: #000;
+}
+
+/* Imagem do Mapa Completo dentro do radar */
+.map-image {
+    position: absolute;
+    /* Defina o tamanho do zoom aqui. Quanto maior a imagem, maior o zoom no mapa */
+    width: 1000px; 
+    height: 1000px;
+    /* Posição inicial (centralizado) */
+    top: -400px; 
+    left: -400px;
+    transition: top 0.1s ease, left 0.1s ease; /* Movimento suave */
+}
+
+/* Ponto central (Jogador / Seta do CJ) */
+.player-marker {
+    width: 12px;
+    height: 12px;
+    background-color: #00a8ff; /* Cor do ponto */
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    /* Centraliza perfeitamente no meio do radar de 200x200 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.instrucoes {
+    margin-top: 20px;
+    text-align: center;
+    color: #aaa;
+}

@@ -8,8 +8,15 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/velocimetro.css">
     <link rel="stylesheet" href="./css/stats.css">
+    <link rel="stylesheet" href="./css/minimap.css">
 </head>
 <body>
+    <div class="minimap-container">
+        <div class="minimap-radar">
+            <img class="map-image" id="mapa" src="./img/map.png" alt="Mapa">
+            <div class="player-marker"></div>
+        </div>
+    </div>
 
     <div class="hud-container">
         <div class="speed-wrap">
@@ -46,6 +53,7 @@
             </div>
         </div>
     </div>
+    <script src="js/minimap.js"></script>
     <script src="js/stats.js"></script>
     <script src="js/speed.js"></script>
     <script src="js/app.js"></script>

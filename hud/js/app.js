@@ -22,3 +22,7 @@ cef.on("UpdateHUD", (hp, hunger, thirst, armor) => {
 cef.on("UpdateSpeed", (speed) => {
     updateSpeed(speed);
 });
+
+cef.on("UpdatePosition", (x, y) => {
+    changePosition(x, y);
+});
