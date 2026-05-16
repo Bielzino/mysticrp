@@ -13,7 +13,11 @@
 <body>
     <div class="minimap-container">
         <div class="minimap-radar">
-            <img class="map-image" id="mapa" src="./img/map.png" alt="Mapa">
+            <div id="map-mover" style="position: absolute; width: 1000px; height: 1000px;">
+                
+                <img class="map-image" id="mapa" src="./img/map.png" alt="Mapa" style="position: absolute; width: 1000px; height: 1000px; left: 0; top: 0; transform-origin: 50% 50%;">
+            
+            </div>
             <div class="player-marker"></div>
         </div>
     </div>

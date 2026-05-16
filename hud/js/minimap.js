@@ -1,25 +1,24 @@
-// --- SISTEMA DO MINIMAPA ---
-let mapX = -400;
-let mapY = -400;
-const velocidade = 15;
-const mapa = document.getElementById('mapa');
+function changePosition(xGTA, yGTA, anguloGTA) {
 
-// Nova função adaptada para receber as coordenadas do GTA SA (Ex: 2494, -1685)
-function changePosition(xGTA, yGTA) {
-    const tamanhoImagem = 1000; // Largura/Altura da imagem do mapa no CSS
-    const centroRadar = 100;    // Metade da moldura de 200px para centralizar o ponto
+    const tamanhoImagem = 1000;
+    const centroRadar = 100;
 
-    // 1. Converte a posição do GTA (-3000 a 3000) para pixels (0 a 1000)
-    let pixelX = ((xGTA + 3000) / 6000) * tamanhoImagem;
-    let pixelY = ((3000 - yGTA) / 6000) * tamanhoImagem;
+    // Converte coordenadas GTA -> pixels
+    const pixelX = ((xGTA + 3000) / 6000) * tamanhoImagem;
+    const pixelY = ((3000 - yGTA) / 6000) * tamanhoImagem;
 
-    // 2. Calcula o deslocamento do mapa em relação ao centro do radar (invertendo o valor)
-    mapX = (pixelX - centroRadar) * -1;
-    mapY = (pixelY - centroRadar) * -1;
+    // Faz o player ficar no centro do radar
+    const mapX = centroRadar - pixelX;
+    const mapY = centroRadar - pixelY;
 
-    // 3. Aplica o posicionamento no elemento HTML
     if (mapa) {
-        mapa.style.left = mapX + 'px';
-        mapa.style.top = mapY + 'px';
+
+        mapa.style.transformOrigin = "50% 50%";
+
+        mapa.style.transform =
+            `translate(${mapX}px, ${mapY}px) rotate(${-anguloGTA}deg)`;
     }
+
+    debugInfo.innerHTML =
+        `X: ${xGTA.toFixed(2)} | Y: ${yGTA.toFixed(2)} | Ângulo: ${anguloGTA}°`;
 }

@@ -23,6 +23,6 @@ cef.on("UpdateSpeed", (speed) => {
     updateSpeed(speed);
 });
 
-cef.on("UpdatePosition", (x, y) => {
-    changePosition(x, y);
+cef.on("UpdatePosition", (x, y, angle) => {
+    changePosition(x, y, angle);
 });
