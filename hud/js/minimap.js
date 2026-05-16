@@ -19,6 +19,4 @@ function changePosition(xGTA, yGTA, anguloGTA) {
             `translate(${mapX}px, ${mapY}px) rotate(${-anguloGTA}deg)`;
     }
 
-    debugInfo.innerHTML =
-        `X: ${xGTA.toFixed(2)} | Y: ${yGTA.toFixed(2)} | Ângulo: ${anguloGTA}°`;
 }
