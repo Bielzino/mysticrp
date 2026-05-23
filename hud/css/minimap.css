@@ -18,15 +18,17 @@
     background-color: #000;
 }
 
-/* Imagem do Mapa Completo dentro do radar */
 .map-image {
     position: absolute;
     width: 1000px; 
     height: 1000px;
-    top: 0;   
-    left: 0;  
-    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
-    will-change: transform; /* Avisa o navegador para otimizar o ganho de FPS */
+    top: 0;
+    left: 0;
+    
+    /* O SEGREDO: Suaviza tanto a posição (top/left) quanto a rotação (transform) */
+    transition: left 0.5s ease-out, top 0.5s ease-out, transform 0.5s ease-out;
+    
+    will-change: transform, top, left; /* Ajuda a não dar lag */
 }
 
 /* Ponto central (Jogador / Seta do CJ) */
