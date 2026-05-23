@@ -21,13 +21,12 @@
 /* Imagem do Mapa Completo dentro do radar */
 .map-image {
     position: absolute;
-    /* Defina o tamanho do zoom aqui. Quanto maior a imagem, maior o zoom no mapa */
     width: 1000px; 
     height: 1000px;
-    /* Posição inicial (centralizado) */
-    top: -400px; 
-    left: -400px;
-    transition: top 0.1s ease, left 0.1s ease; /* Movimento suave */
+    /* Deixamos o JS controlar o top/left e o transform de forma independente */
+    top: 0;
+    left: 0;
+    will-change: transform, top, left;
 }
 
 /* Ponto central (Jogador / Seta do CJ) */

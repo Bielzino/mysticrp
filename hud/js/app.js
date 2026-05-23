@@ -24,6 +24,5 @@ cef.on("UpdateSpeed", (speed) => {
 });
 
 cef.on("UpdatePosition", (x, y, angle) => {
-    updateRotation(angle);
-    changePosition(x, y);
+    updateRadar(x, y, angle);
 });
