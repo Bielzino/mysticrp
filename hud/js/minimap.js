@@ -16,6 +16,6 @@ function changePosition(xGTA, yGTA, anguloGTA) {
         mapa.style.transformOrigin = "50% 50%";
 
         mapa.style.transform =
-            `translate(${mapX}px, ${mapY}px) rotate(${anguloGTA}deg)`;
+            `translate(${mapX}px, ${mapY}px) rotate(${-anguloGTA}deg)`;
     }
 }
