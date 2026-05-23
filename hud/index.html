@@ -18,7 +18,11 @@
         </div>
     </div>
 
+    <div class="logo-container">
+        <img src="./img/logo.png" alt="Logo">
+    </div>
     <div class="hud-container">
+
         <div class="speed-wrap">
             <svg class="rpm-ring" width="160" height="160">
                 <circle class="track" cx="80" cy="80" r="70"></circle>
@@ -30,6 +34,22 @@
                 <div class="unit-gear">
                     <span>KM/H</span>
                     <span class="gear-active" id="gear-val">N</span>
+                </div>
+            </div>
+
+            <div class="vehicle-status">
+                <div class="status-item fuel">
+                    <svg viewBox="0 0 512 512" class="status-icon">
+                        <path fill="currentColor" d="M32 64C14.3 64 0 78.3 0 96V416c0 17.7 14.3 32 32 32H288c17.7 0 32-14.3 32-32V96c0-17.7-14.3-32-32-32H32zM48 128H272V256H48V128zM368 96c-13.3 0-24 10.7-24 24V320c0 30.9 25.1 56 56 56h32c13.3 0 24-10.7 24-24V224h16c17.7 0 32-14.3 32-32V128c0-17.7-14.3-32-32-32H368z"/>
+                    </svg>
+                    <span id="fuel-val">85%</span>
+                </div>
+
+                <div class="status-item health">
+                    <svg viewBox="0 0 512 512" class="status-icon">
+                        <path fill="currentColor" d="M487.4 315.7l-42.6-42.6c13.8-36.7 5.1-79.6-26.2-110.9c-36.2-36.2-92.3-41.9-134.7-17.1L215.6 213.4l-72.4-72.4L211.5 69.3c24.8-42.4 19.1-98.5-17.1-134.7c-31.3-31.3-74.2-40-110.9-26.2L40.9 65.8C26.9 79.8 26.9 102.5 40.9 116.5l22.4 22.4L14.7 187.5c-19.5 19.5-19.5 51.2 0 70.7l116.6 116.6c19.5 19.5 51.2 19.5 70.7 0l48.6-48.6 22.4 22.4c14 14 36.7 14 50.7 0l42.6-42.6c-13.8 36.7-5.1 79.6 26.2 110.9c36.2 36.2 92.3 41.9 134.7 17.1l-71.7-71.7c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l71.7 71.7c24.8-42.4 19.1-98.5-17.1-134.7c-31.3-31.3-74.2-40-110.9-26.2z"/>
+                    </svg>
+                    <span id="health-val">100%</span>
                 </div>
             </div>
         </div>

@@ -22,3 +22,26 @@ body {
     align-items: center;
     gap: 5px;
 }
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;             /* Garante que o container ocupe toda a largura da tela */
+    padding: 2px 0;         /* Cria um espaçamento elegante no topo e embaixo */
+    background-color: #ffffff; /* Opcional: define um fundo branco (ajuste se necessário) */
+    box-sizing: border-box;  /* Evita que o padding quebre a largura do layout */
+}
+
+.logo-container img {
+    width: 100%;             /* Faz a imagem ser responsiva */
+    max-width: 110px;        /* Tamanho ideal para uma logo legível no topo (substituiu os 24px) */
+    height: auto;            /* Mantém a proporção perfeita da imagem */
+    object-fit: contain;     /* Garante que a imagem não distorça de forma alguma */
+    transition: transform 0.3s ease; /* Efeito suave caso queira colocar um hover depois */
+}
+
+/* Bônus: Efeito sutil ao passar o mouse */
+.logo-container img:hover {
+    transform: scale(1.02);  /* Dá um leve zoom interativo */
+}

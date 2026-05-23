@@ -64,3 +64,43 @@
 .gear-active { 
     color: var(--primary); 
 }
+
+/* AJUSTE FINO NO SEU CONTAINER ANTIGO (Apenas para ajustar a altura dos textos) */
+.speed-info {
+    margin-top: -10px !important; /* Sobe levemente o KM/H para não esmagar os novos ícones */
+}
+
+/* NOVAS CLASSES PARA ADICIONAR AO SEU PROJETO */
+.vehicle-status {
+    position: absolute;
+    bottom: -5px;          /* Alinha certinho na abertura de baixo do seu arco de 120px */
+    display: flex;
+    justify-content: space-between;
+    width: 75%;            /* Deixa na largura ideal para acompanhar o desenho do aro */
+    z-index: 3;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;              /* Espaço entre o ícone e a porcentagem */
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.status-icon {
+    width: 11px;
+    height: 11px;
+}
+
+/* Cores combinando com o seu padrão */
+.fuel {
+    color: var(--primary);  /* Usa o azul ciano que você já tem no :root */
+}
+
+.health {
+    color: #00ff66;         /* Verde para a vida (pode mudar para var(--danger) no JS se o carro bater) */
+}
