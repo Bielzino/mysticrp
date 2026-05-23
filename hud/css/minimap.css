@@ -23,9 +23,10 @@
     position: absolute;
     width: 1000px; 
     height: 1000px;
-    top: 0;
-    left: 0;
-    will-change: transform, top, left;
+    top: 0;   
+    left: 0;  
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform; /* Avisa o navegador para otimizar o ganho de FPS */
 }
 
 /* Ponto central (Jogador / Seta do CJ) */
