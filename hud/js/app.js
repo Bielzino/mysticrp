@@ -24,5 +24,6 @@ cef.on("UpdateSpeed", (speed) => {
 });
 
 cef.on("UpdatePosition", (x, y, angle) => {
-    changePosition(x, y, angle);
+    updateRotation(angle);
+    changePosition(x, y);
 });

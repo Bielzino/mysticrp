@@ -1,4 +1,16 @@
-function changePosition(xGTA, yGTA, anguloGTA) {
+let angle = 0;
+
+function updateRotation(anguloGTA) {
+    if (mapa) {
+        if(angle != anguloGTA){
+            angle = anguloGTA;
+            mapa.style.transform = `rotate(${-anguloGTA}deg)`;
+        }
+    }
+}
+
+function changePosition(xGTA, yGTA) {
+    if (!mapa) return; // Garante que o mapa existe antes de aplicar
 
     const tamanhoImagem = 1000;
     const centroRadar = 100;
@@ -11,11 +23,7 @@ function changePosition(xGTA, yGTA, anguloGTA) {
     const mapX = centroRadar - pixelX;
     const mapY = centroRadar - pixelY;
 
-    if (mapa) {
-
-        mapa.style.transformOrigin = "50% 50%";
-
-        mapa.style.transform =
-            `translate(${mapX}px, ${mapY}px) rotate(${-anguloGTA}deg)`;
-    }
+    // --- O QUE ESTAVA FALTANDO: Aplicar no CSS ---
+    mapa.style.left = `${mapX}px`;
+    mapa.style.top = `${mapY}px`;
 }
