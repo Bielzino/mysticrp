@@ -17,18 +17,17 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
     background-color: #000;
 }
-
+/* Imagem do Mapa Completo dentro do radar */
 .map-image {
     position: absolute;
     width: 1000px; 
     height: 1000px;
     top: 0;
     left: 0;
+    will-change: transform, top, left;
     
-    /* O SEGREDO: Suaviza tanto a posição (top/left) quanto a rotação (transform) */
-    transition: left 0.5s ease-out, top 0.5s ease-out, transform 0.5s ease-out;
-    
-    will-change: transform, top, left; /* Ajuda a não dar lag */
+    /* Adicione estas linhas abaixo: */
+    transition: transform 0.3s ease-out; /* Altera o tempo (0.3s) e o tipo de animação se quiser */
 }
 
 /* Ponto central (Jogador / Seta do CJ) */
