@@ -22,6 +22,6 @@ function controllHud(status){
 
 // Atualiza valores de dinheiro
 function updateMoney(money, bank){
-    document.getElementById('money-carteira').innerText = money;
-    document.getElementById('money-banco').innerText = bank;
+    document.getElementById('money-carteira').innerText = `$RS${money}`;
+    document.getElementById('money-banco').innerText = `$RS${bank}`;
 }
