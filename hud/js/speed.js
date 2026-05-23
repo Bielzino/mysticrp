@@ -3,6 +3,7 @@ const rpmEl = document.getElementById('rpm-arc');
 const gearEl = document.getElementById('gear-val');
 let speed = false;
 
+// Calcula a marcha baseada na velocidade
 function getGear(speed)
 {
     if(speed <= 0) return 'N';
@@ -15,6 +16,7 @@ function getGear(speed)
     return 6;
 }
 
+// Calcula a proporção de RPM
 function getRPMRatio(speed, gear)
 {
     const ratios = {
@@ -35,30 +37,23 @@ function getRPMRatio(speed, gear)
     );
 }
 
+// Atualiza o velocímetro visualmente
 function updateSpeed(speedMph) {
-    // MPH -> KM/H
     let speed = Math.floor(speedMph * 1.60934);
 
-    // Limite do velocímetro
     speed = Math.min(speed, 260);
 
-    // Atualiza velocidade
     if (speedEl) speedEl.innerText = speed.toString().padStart(3, '0');
 
-    // Calcula marcha
     const gear = getGear(speed);
 
-    // Atualiza marcha
     if (gearEl) gearEl.innerText = gear;
 
-    // Calcula RPM
     const rpmRatio = getRPMRatio(speed, gear);
 
-    // Atualiza arco RPM
     if (rpmEl) {
         rpmEl.style.strokeDashoffset = 440 - (rpmRatio * (440 * 0.65));
 
-        // Cor RPM
         if (rpmRatio > 0.80) {
             rpmEl.style.stroke = "var(--danger)";
         } else {
@@ -67,6 +62,13 @@ function updateSpeed(speedMph) {
     }
 }
 
+// Atualiza vida e combustível do veículo
+function updateVeh(vehLife, vehGas){
+    document.getElementById('health-val').innerText = vehLife;
+    document.getElementById('fuel-val').innerText = vehGas;
+}
+
+// Alterna a exibição do velocímetro
 function activeSpeed(){
     if(speed == false){
         document.querySelector(".speed-wrap").style.display = "flex";

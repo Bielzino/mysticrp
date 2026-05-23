@@ -1,28 +1,35 @@
-// Evento para mostrar/esconder o velocímetro
+// Mostra/esconde o velocímetro
 cef.on("UI:ShowSpeed", (status) => {
     if(status == true){
         activeSpeed();
     }
 });
 
-// Evento para mostrar/esconder o HUD de status
+// Mostra/esconde o HUD de status
 cef.on("UI:ShowHUD", () => {
     controllHud();        
 });
 
-// Evento para atualizar o HUD de status
-cef.on("UpdateHUD", (hp, hunger, thirst, armor) => {
+// Atualiza o HUD de status
+cef.on("UpdateHUD", (hp, hunger, thirst, armor, money, bank) => {
     updateHud('hp', hp);
     updateHud('ar', armor);
     updateHud('fd', hunger);
     updateHud('wt', thirst);
+    updateMoney(money, bank);
 });
 
-// Evento para atualizar o velocímetro
+// Atualiza o velocímetro
 cef.on("UpdateSpeed", (speed) => {
     updateSpeed(speed);
 });
 
+// Atualiza posição no radar
 cef.on("UpdatePosition", (x, y, angle) => {
     updateRadar(x, y, angle);
+});
+
+// Atualiza status do veículo
+cef.on("UpdateVehicle", (vehLife, vehGas) => {
+    updateVeh(vehLife, vehGas);
 });

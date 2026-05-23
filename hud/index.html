@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/minimap.css">
 </head>
 <body>
+    <!-- Minimapa -->
     <div class="minimap-container">
         <div class="minimap-radar">
             <img src="./img/map.png" class="map-image" alt="Mapa">
@@ -18,11 +19,26 @@
         </div>
     </div>
 
+    <!-- Logo Superior -->
     <div class="logo-container">
         <img src="./img/logo.png" alt="Logo">
     </div>
+
+    <!-- HUD de Dinheiro -->
+    <div class="hud-financeiro-minimalista">
+        <div class="finance-row carteira">
+            <span class="money" id="money-carteira">R$ 0</span>
+        </div>
+        
+        <div class="finance-row banco">
+            <span class="money" id="money-banco">R$ 0</span>
+        </div>
+    </div>
+
+    <!-- Container da HUD Principal -->
     <div class="hud-container">
 
+        <!-- Velocímetro -->
         <div class="speed-wrap">
             <svg class="rpm-ring" width="160" height="160">
                 <circle class="track" cx="80" cy="80" r="70"></circle>
@@ -54,6 +70,7 @@
             </div>
         </div>
 
+        <!-- Barras de Status -->
         <div class="stats-wrap">
             <div class="stat-item">
                 <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>

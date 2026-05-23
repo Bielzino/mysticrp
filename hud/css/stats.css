@@ -1,4 +1,4 @@
-/* Estilos dos Status */
+/* Estilos das Barras de Status */
 :root {
     --armor: #06315f;
     --food: #ff9500;
@@ -39,7 +39,6 @@
     transition: width 0.4s ease;
 }
 
-/* Classes de Preenchimento */
 .hp { background: var(--danger); width: 100%; }
 .ar { background: var(--armor); width: 60%; }
 .fd { background: var(--food); width: 40%; }
