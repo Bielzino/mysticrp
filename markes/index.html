@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA 3D Marker com JS</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js"></script>
+</head>
+<body>
+    <div class="scene">
+        <div class="marker-container">
+            <div class="marker-icon">
+                <img id="markerImg" src="https://cdn-icons-png.flaticon.com/512/2331/2331713.png" alt="Icone">
+            </div>
+            <div class="marker-ring"></div>
+        </div>
+    </div>
+
+    <script>
+        function mudarIcone(urlDaImagem) {
+            const imagem = document.getElementById('markerImg');
+            
+            // Efeito visual opcional: pisca a imagem ao trocar
+            imagem.style.opacity = 0;
+            
+            setTimeout(() => {
+                imagem.src = urlDaImagem; // Troca a imagem aqui!
+                imagem.style.opacity = 1;
+            }, 150);
+        }
+    </script>
+
+</body>
+</html>
