@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banco Liberty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+    <div class="bank-window">
+        <div class="bank-header">
+            <div>
+                <p class="eyebrow">Agência</p>
+                <h1>Banco Liberty</h1>
+            </div>
+            <button class="close-btn" type="button" aria-label="Fechar">×</button>
+        </div>
+
+        <div class="account-box">
+            <div class="account-label">Conta</div>
+            <div class="account-name" id="accountName">NOME DO CLIENTE</div>
+        </div>
+
+        <div class="balance-row">
+            <div class="balance-card">
+                <span>Saldo</span>
+                <strong id="balanceValue">R$ 0</strong>
+            </div>
+            <div class="balance-card accent">
+                <span>Banco</span>
+                <strong id="bankValue">R$ 0</strong>
+            </div>
+        </div>
+
+        <div class="actions-grid">
+            <button class="action-btn primary" data-action="depositar">
+                <span class="icon">+</span>
+                Depositar
+            </button>
+            <button class="action-btn" data-action="sacar">
+                <span class="icon">−</span>
+                Sacar
+            </button>
+            <button class="action-btn" data-action="transferir">
+                <span class="icon">⇄</span>
+                Transferir
+            </button>
+            <button class="action-btn" data-action="extrato">
+                <span class="icon">▣</span>
+                Extrato
+            </button>
+        </div>
+
+        <div class="form-panel">
+            <label for="amountInput">Valor</label>
+            <div class="input-box">
+                <span>R$</span>
+                <input id="amountInput" type="number" min="1" value="100" />
+            </div>
+        </div>
+
+        <button class="confirm-btn" type="button" id="confirmBtn">Confirmar</button>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
