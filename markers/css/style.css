@@ -3,15 +3,15 @@
 }
 
 :root {
-    --bg-1: #0d1117;
-    --bg-2: #141b26;
+    --bg-1: #111827;
+    --bg-2: #1b2430;
     --panel-line: rgba(255, 255, 255, 0.08);
-    --text-1: #edf3ff;
-    --text-2: rgba(237, 243, 255, 0.72);
-    --bank: #48d7ff;
-    --hospital: #ff5d8f;
-    --shop: #ffc857;
-    --shadow: rgba(0, 0, 0, 0.38);
+    --text-1: #f4f7fb;
+    --text-2: rgba(244, 247, 251, 0.72);
+    --bank: #7dd3fc;
+    --hospital: #fda4af;
+    --shop: #fcd34d;
+    --shadow: rgba(0, 0, 0, 0.28);
 }
 
 html, body {
@@ -33,15 +33,15 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 18px;
-    width: min(400px, 76vw);
-    padding: 16px 18px 16px 14px;
-    border-radius: 18px;
-    background: linear-gradient(135deg, rgba(13, 17, 23, 0.92), rgba(20, 27, 38, 0.82));
-    border: 1px solid var(--panel-line);
-    border-left: 5px solid var(--bank);
-    box-shadow: 0 18px 34px var(--shadow), inset 0 1px 0 rgba(255,255,255,0.04);
-    backdrop-filter: blur(10px);
+    gap: 12px;
+    width: min(300px, 68vw);
+    padding: 10px 14px 10px 10px;
+    border-radius: 12px;
+    background: rgba(17, 24, 39, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-left: 3px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(6px);
     animation: riseIn 0.22s ease-out;
 }
 
@@ -49,7 +49,7 @@ body {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(circle at left center, rgba(255,255,255,0.06), transparent 60%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), transparent 65%);
     pointer-events: none;
 }
 
@@ -59,22 +59,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 72px;
-    height: 72px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.04);
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
 }
 
 .marker-icon {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 2.2rem;
-    letter-spacing: -0.06em;
+    font-size: 1.5rem;
+    letter-spacing: -0.04em;
     line-height: 1;
-    color: var(--bank);
-    text-shadow: 0 0 18px rgba(72, 215, 255, 0.7);
+    color: rgba(255,255,255,0.9);
+    text-shadow: none;
 }
 
 .marker-content {
@@ -142,7 +141,7 @@ body {
 .marker-panel[data-type="bank"] .marker-icon,
 .marker-panel[data-type="bank"] .marker-key {
     color: var(--bank);
-    text-shadow: 0 0 18px rgba(72, 215, 255, 0.7);
+    text-shadow: none;
 }
 
 .marker-panel[data-type="hospital"] {
@@ -152,7 +151,7 @@ body {
 .marker-panel[data-type="hospital"] .marker-icon,
 .marker-panel[data-type="hospital"] .marker-key {
     color: var(--hospital);
-    text-shadow: 0 0 18px rgba(255, 93, 143, 0.7);
+    text-shadow: none;
 }
 
 .marker-panel[data-type="shop"] {
@@ -162,7 +161,7 @@ body {
 .marker-panel[data-type="shop"] .marker-icon,
 .marker-panel[data-type="shop"] .marker-key {
     color: var(--shop);
-    text-shadow: 0 0 18px rgba(255, 200, 87, 0.7);
+    text-shadow: none;
 }
 
 @keyframes riseIn {
