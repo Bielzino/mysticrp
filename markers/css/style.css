@@ -1,80 +1,177 @@
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: sans-serif;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+:root {
+    --bg-1: #0d1117;
+    --bg-2: #141b26;
+    --panel-line: rgba(255, 255, 255, 0.08);
+    --text-1: #edf3ff;
+    --text-2: rgba(237, 243, 255, 0.72);
+    --bank: #48d7ff;
+    --hospital: #ff5d8f;
+    --shop: #ffc857;
+    --shadow: rgba(0, 0, 0, 0.38);
+}
 
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+    font-family: 'Rajdhani', sans-serif;
+}
 
-        /* ESTRUTURA DO MARKER 3D */
-        .scene {
-            width: 500px;
-            height: 500px;
-            perspective: 1000px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .marker-container {
-            position: relative;
-            width: 250px;
-            height: 250px;
-            transform-style: preserve-3d;
-            transform: rotateX(65deg);
-        }
+.marker-panel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: min(400px, 76vw);
+    padding: 16px 18px 16px 14px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(13, 17, 23, 0.92), rgba(20, 27, 38, 0.82));
+    border: 1px solid var(--panel-line);
+    border-left: 5px solid var(--bank);
+    box-shadow: 0 18px 34px var(--shadow), inset 0 1px 0 rgba(255,255,255,0.04);
+    backdrop-filter: blur(10px);
+    animation: riseIn 0.22s ease-out;
+}
 
-        .marker-ring {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 8px solid rgba(255, 204, 0, 0.8);
-            border-radius: 50%;
-            box-shadow: 0 0 30px rgba(255, 204, 0, 0.6), inset 0 0 30px rgba(255, 204, 0, 0.6);
-            animation: rotateRing 4s linear infinite;
-        }
+.marker-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at left center, rgba(255,255,255,0.06), transparent 60%);
+    pointer-events: none;
+}
 
-        .marker-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 75px;
-            height: 75px;
-            transform: translate(-50%, -50%) rotateX(-90deg) translateZ(130px);
-            animation: floatIcon 1.5s ease-in-out infinite alternate;
-        }
+.marker-icon-wrap {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+}
 
-        .marker-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            /* Suaviza a troca de imagem com um leve efeito de transição */
-            transition: opacity 0.3s ease-in-out; 
-        }
+.marker-icon {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    letter-spacing: -0.06em;
+    line-height: 1;
+    color: var(--bank);
+    text-shadow: 0 0 18px rgba(72, 215, 255, 0.7);
+}
 
-        /* ANIMAÇÕES */
-        @keyframes rotateRing {
-            from { transform: rotateZ(0deg); }
-            to { transform: rotateZ(360deg); }
-        }
+.marker-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 6px;
+}
 
-        @keyframes floatArrow {
-            from { transform: translate(-50%, -50%) rotateX(-90deg) translateZ(50px); }
-            to { transform: translate(-50%, -50%) rotateX(-90deg) translateZ(80px); }
-        }
+.marker-eyebrow {
+    margin: 0;
+    font-size: 0.66rem;
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--text-2);
+}
 
-        @keyframes floatIcon {
-            from { transform: translate(-50%, -50%) rotateX(-90deg) translateZ(130px); }
-            to { transform: translate(-50%, -50%) rotateX(-90deg) translateZ(160px); }
-        }
+.marker-title {
+    margin: 0;
+    font-size: clamp(1.8rem, 2.1vw, 2.2rem);
+    line-height: 0.9;
+    color: var(--text-1);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+}
+
+.marker-action-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2px;
+}
+
+.marker-key {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.92);
+    color: #0b1320;
+    font-weight: 800;
+    font-size: 0.82rem;
+    box-shadow: inset 0 -2px 0 rgba(0,0,0,0.14);
+}
+
+.marker-action {
+    color: rgba(255,255,255,0.86);
+    font-size: 0.7rem;
+    letter-spacing: 0.16rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.marker-panel[data-type="bank"] {
+    border-left-color: var(--bank);
+}
+
+.marker-panel[data-type="bank"] .marker-icon,
+.marker-panel[data-type="bank"] .marker-key {
+    color: var(--bank);
+    text-shadow: 0 0 18px rgba(72, 215, 255, 0.7);
+}
+
+.marker-panel[data-type="hospital"] {
+    border-left-color: var(--hospital);
+}
+
+.marker-panel[data-type="hospital"] .marker-icon,
+.marker-panel[data-type="hospital"] .marker-key {
+    color: var(--hospital);
+    text-shadow: 0 0 18px rgba(255, 93, 143, 0.7);
+}
+
+.marker-panel[data-type="shop"] {
+    border-left-color: var(--shop);
+}
+
+.marker-panel[data-type="shop"] .marker-icon,
+.marker-panel[data-type="shop"] .marker-key {
+    color: var(--shop);
+    text-shadow: 0 0 18px rgba(255, 200, 87, 0.7);
+}
+
+@keyframes riseIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
