@@ -1,5 +1,8 @@
 const amountInput = document.getElementById('amountInput');
+const idInput = document.getElementById('idInput');
+const transferPanel = document.getElementById('transferPanel');
 const confirmBtn = document.getElementById('confirmBtn');
+const closeBtn = document.querySelector('.close-btn');
 const actionButtons = document.querySelectorAll('.action-btn');
 const balanceValue = document.getElementById('balanceValue');
 const bankValue = document.getElementById('bankValue');
@@ -16,6 +19,8 @@ function setActiveAction(action) {
         const isActive = button.dataset.action === action;
         button.classList.toggle('primary', isActive);
     });
+
+    transferPanel.classList.toggle('hidden', action !== 'transferir');
 }
 
 function setBankData(name, cash, bank) {
@@ -47,18 +52,22 @@ function confirmAction() {
         const current = Number(balanceValue.dataset.value || 0);
         balanceValue.dataset.value = current + amount;
         balanceValue.textContent = formatMoney(current + amount);
+        cef.emit('bank:deposit', amount);
     }
 
     if (currentAction === 'sacar') {
         const current = Number(balanceValue.dataset.value || 0);
         balanceValue.dataset.value = Math.max(0, current - amount);
         balanceValue.textContent = formatMoney(Math.max(0, current - amount));
+        cef.emit('bank:saque', amount);
     }
 
     if (currentAction === 'transferir') {
+        const targetId = Number(idInput.value || 0);
         const current = Number(bankValue.dataset.value || 0);
         bankValue.dataset.value = current + amount;
         bankValue.textContent = formatMoney(current + amount);
+        cef.emit('bank:transfer', targetId, amount);
     }
 }
 
@@ -82,5 +91,15 @@ actionButtons.forEach((button) => {
 
 confirmBtn.addEventListener('click', confirmAction);
 
+closeBtn.addEventListener('click', () => {
+    if (typeof cef !== 'undefined' && typeof cef.emit === 'function') {
+        cef.emit('bank:close');
+    }
+});
+
 setBankData('CLIENTE', 2500, 15000);
 setActiveAction('depositar');
+
+cef.on('bank:load', (name, cash, bank) => {
+    setBankData(name, cash, bank);
+})

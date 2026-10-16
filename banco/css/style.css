@@ -173,6 +173,10 @@ body {
     margin-bottom: 18px;
 }
 
+.form-panel.hidden {
+    display: none;
+}
+
 .form-panel label {
     display: block;
     margin-bottom: 8px;
