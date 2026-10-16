@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  color-scheme: dark;
+  font-family: "Manrope", sans-serif;
+  color: #f1f3f5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --green: #65e6a5;
+  --blue: #67b9ff;
+  --amber: #f5bd63;
+  --red: #ff7480;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+button { font: inherit; }
+
+.notification-area {
+  position: fixed;
+  top: 7.5vh;
+  right: 2.5vw;
+  display: flex;
+  width: min(360px, calc(100vw - 32px));
+  max-height: 80vh;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.notification {
+  --tone: var(--blue);
+  display: flex;
+  gap: 12px;
+  padding: 13px 14px 11px;
+  border: 1px solid color-mix(in srgb, var(--tone) 19%, transparent);
+  border-left: 2px solid var(--tone);
+  border-radius: 9px;
+  background: linear-gradient(105deg, color-mix(in srgb, var(--tone) 9%, #171d25), rgba(19, 24, 32, 0.97) 76%);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.24), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  backdrop-filter: blur(12px);
+  animation: enter 260ms ease-out both;
+}
+
+.notification-success { --tone: var(--green); }
+.notification-info { --tone: var(--blue); }
+.notification-warning { --tone: var(--amber); }
+.notification-error { --tone: var(--red); }
+
+.notification-icon {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  place-items: center;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--tone) 13%, transparent);
+  color: var(--tone);
+}
+
+.notification-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.notification-copy { min-width: 0; flex: 1; }
+
+.notification-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.notification-title strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.notification-title time { flex-shrink: 0; color: #77818e; font: 9px "DM Mono", monospace; }
+.notification-copy p { margin: 5px 0 10px; color: #aeb6c0; font-size: 11px; line-height: 1.55; overflow-wrap: anywhere; }
+
+.progress {
+  height: 2px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.progress > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--tone);
+  transform-origin: left;
+  animation: countdown var(--duration, 5s) linear forwards;
+}
+
+.notification.is-leaving { animation: leave 200ms ease-in forwards; }
+
+.demo-tools {
+  position: fixed;
+  right: 2.5vw;
+  bottom: 3vh;
+  display: none;
+  align-items: center;
+  gap: 14px;
+  padding: 9px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+  background: rgba(17, 22, 29, 0.92);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(10px);
+}
+
+.preview-mode .demo-tools { display: flex; }
+.demo-label { display: flex; align-items: center; gap: 7px; color: #939ca7; font: 8px "DM Mono", monospace; letter-spacing: 0.8px; }
+.demo-label > span { width: 5px; height: 5px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px rgba(101, 230, 165, 0.7); }
+.demo-actions { display: flex; gap: 6px; }
+
+.action-button {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 7px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.action-button:hover { transform: translateY(-2px); background: color-mix(in srgb, currentColor 14%, transparent); }
+.action-button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.action-success { color: var(--green); }
+.action-info { color: var(--blue); }
+.action-warning { color: var(--amber); }
+.action-error { color: var(--red); }
+
+@keyframes enter {
+  from { opacity: 0; transform: translateX(18px) scale(0.98); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes leave {
+  to { opacity: 0; transform: translateX(18px); }
+}
+
+@keyframes countdown { to { transform: scaleX(0); } }
+
+@media (max-width: 520px) {
+  .notification-area { top: 16px; right: 12px; width: min(360px, calc(100vw - 24px)); }
+  .demo-tools { right: 12px; bottom: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
