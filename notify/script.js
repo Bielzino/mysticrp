@@ -22,20 +22,6 @@ const actionButtons = document.querySelectorAll(".action-button");
 const isPreview = new URLSearchParams(window.location.search).has("preview") || typeof window.invokeNative !== "function";
 const maxNotifications = 5;
 
-window.addEventListener("message", (event) => {
-  const data = event.data;
-  if (!data || typeof data !== "object") return;
-
-  const payload = data.action === "notify" && data.notification ? data.notification : data;
-  showNotification(payload);
-});
-
-window.showNotification = showNotification;
-
-// ==exemplo de uso ==
-// showNotification({type:"info", title:"pagamento", message:"voce recebeu", duration:"9000"})
-// *==================
-
 function showNotification(options) {
   if (!options || typeof options !== "object") return;
 
