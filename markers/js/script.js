@@ -51,8 +51,6 @@ if (panel) {
     applyMarker(panel.dataset.type || 'bank');
 }
 
-if (typeof cef !== 'undefined' && typeof cef.on === 'function') {
-    cef.on('marker:type', (type) => {
+cef.on('marker:type', (type) => {
         applyMarker(String(type || 'bank').toLowerCase());
-    });
-}
+});
