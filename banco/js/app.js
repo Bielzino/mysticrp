@@ -97,7 +97,6 @@ closeBtn.addEventListener('click', () => {
     }
 });
 
-setBankData('CLIENTE', 2500, 15000);
 setActiveAction('depositar');
 
 cef.on('bank:load', (name, cash, bank) => {
