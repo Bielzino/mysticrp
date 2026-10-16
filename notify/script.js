@@ -22,13 +22,6 @@ const actionButtons = document.querySelectorAll(".action-button");
 const isPreview = new URLSearchParams(window.location.search).has("preview") || typeof window.invokeNative !== "function";
 const maxNotifications = 5;
 
-if (isPreview) {
-  document.body.classList.add("preview-mode");
-  showNotification({ type: "success", title: "Pagamento recebido", message: "Você recebeu $ 2.500 pelo seu trabalho.", duration: 9000 });
-  showNotification({ type: "info", title: "Prefeitura", message: "O toque de recolher começa às 22:00.", duration: 9000 });
-  showNotification({ type: "warning", title: "Atenção", message: "Seu veículo está com pouco combustível.", duration: 9000 });
-}
-
 window.addEventListener("message", (event) => {
   const data = event.data;
   if (!data || typeof data !== "object") return;
