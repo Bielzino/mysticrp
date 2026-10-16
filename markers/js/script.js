@@ -1,21 +1,27 @@
 const markerConfig = {
     bank: {
-        icon: '$',
+        icon: 'imgs/bank.png',
         eyebrow: 'SERVIÇOS FINANCEIROS',
         title: 'Banco',
         action: 'APERTAR PARA ABRIR'
     },
     hospital: {
-        icon: '+',
+        icon: 'imgs/life.png',
         eyebrow: 'ATENDIMENTO MÉDICO',
         title: 'Hospital',
         action: 'CURAR AGORA'
     },
     shop: {
-        icon: 'S',
+        icon: 'imgs/shop.png',
         eyebrow: 'LOJA DE SUPRIMENTOS',
         title: 'Loja',
         action: 'COMPRAR ITENS'
+    },
+    conce: {
+        icon: 'imgs/conce.png',
+        eyebrow: 'CONCESSIONÁRIA',
+        title: 'Concessionária',
+        action: 'COMPRAR VEÍCULO'
     }
 };
 
@@ -28,7 +34,14 @@ const action = document.getElementById('marker-action');
 function applyMarker(type) {
     const config = markerConfig[type] || markerConfig.bank;
     panel.setAttribute('data-type', type || 'bank');
-    icon.textContent = config.icon;
+    
+    // Adicionado style="width: 24px; height: 24px;" (mude os valores conforme preferir)
+    if (config.icon) {
+        icon.innerHTML = `<img src="${config.icon}" alt="${config.title || 'Icon'}" style="width: 24px; height: 24px; object-fit: contain;" />`;
+    } else {
+        icon.innerHTML = '';
+    }
+
     eyebrow.textContent = config.eyebrow;
     title.textContent = config.title;
     action.textContent = config.action;
